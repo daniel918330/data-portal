@@ -1,6 +1,4 @@
-package com.duoyouhui.data.portal.infrastructure.nacos
-
--portal.infrastructure.nacos;
+package com.duoyouhui.data.portal.infrastructure.nacos;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,4 +1,4 @@
-package com.duoyouhui.data.portal.controller-portal.controller;
+package com.duoyouhui.data.portal.controller;
 
 /**
  * Copyright © 2024 DYH Info. Tech Ltd. All rights reserved.

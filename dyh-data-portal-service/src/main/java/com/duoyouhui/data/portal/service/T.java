@@ -1,4 +1,4 @@
-package com.duoyouhui.data.portal.service-portal.service;
+package com.duoyouhui.data.portal.service;
 
 /**
  * Copyright © 2024 DYH Info. Tech Ltd. All rights reserved.

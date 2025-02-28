@@ -1,4 +1,4 @@
-package com.duoyouhui.data.portal.workstation.service-portal.workstation.service;
+package com.duoyouhui.data.portal.workstation.service;
 
 /**
  * Copyright © 2024 DYH Info. Tech Ltd. All rights reserved.

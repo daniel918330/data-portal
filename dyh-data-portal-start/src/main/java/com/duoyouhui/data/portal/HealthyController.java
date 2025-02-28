@@ -1,6 +1,4 @@
-package com.duoyouhui.data.portal
-
--portal;
+package com.duoyouhui.data.portal;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

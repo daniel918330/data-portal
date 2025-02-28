@@ -1,4 +1,4 @@
-package com.duoyouhui.data.portal.infrastructure-portal.infrastructure;
+package com.duoyouhui.data.portal.infrastructure;
 
 /**
  * Copyright © 2024 DYH Info. Tech Ltd. All rights reserved.
