@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.duoyouhui</groupId>
+        <artifactId>dyh-data-portal</artifactId>
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>dyh-data-portal-start</artifactId>
+    <name>dyh-data-portal-start</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.duoyouhui</groupId>
+            <artifactId>dyh-data-portal-controller</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.duoyouhui</groupId>
+            <artifactId>dyh-data-portal-workstation-controller</artifactId>
+        </dependency>
+        <!-- ShardingSphere JDBC -->
+<!--        <dependency>-->
+<!--            <groupId>com.duoyouhui</groupId>-->
+<!--            <artifactId>dyh-sharding-starter</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>shardingsphere-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>shardingsphere-cluster-mode-repository-zookeeper</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>application</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <configuration>
+                    <mainClass>com.duoyouhui.data-portal.Dyhdata-portalApplication</mainClass>
+                    <outputDirectory>../.docker</outputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

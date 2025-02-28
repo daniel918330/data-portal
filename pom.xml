@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.duoyouhui</groupId>
+        <artifactId>dyh-framework</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>dyh-data-portal</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <name>dyh-data-portal</name>
+    <description>dyh-data-portal</description>
+
+    <properties>
+        <!--经常打包，按需在api中写死-->
+        <dyh-data-portal-api.revision>1.0.0-SNAPSHOT</dyh-data-portal-api.revision>
+        <!--Project revision-->
+        <revision>1.0.0-SNAPSHOT</revision>
+        <!--依赖版本-->
+        <dyh-data-portal-service-client.version>1.0.0-SNAPSHOT</dyh-data-portal-service-client.version>
+        <dyh-framework-rocketmq-starter.version>1.0.0-SNAPSHOT</dyh-framework-rocketmq-starter.version>
+        <aliyun.api.gateway.version>1.1.7</aliyun.api.gateway.version>
+        <!-- 三方依赖 -->
+        <shardingshpere.jdbc.version>5.5.1</shardingshpere.jdbc.version>
+    </properties>
+
+    <modules>
+        <module>dyh-data-portal-start</module>
+        <module>dyh-data-portal-api</module>
+        <module>dyh-data-portal-controller</module>
+        <module>dyh-data-portal-service</module>
+        <module>dyh-data-portal-infrastructure</module>
+        <module>dyh-data-portal-workstation</module>
+        <module>dyh-data-portal-workstation/dyh-data-portal-workstation-controller</module>
+        <module>dyh-data-portal-workstation/dyh-data-portal-workstation-service</module>
+        <module>dyh-data-portal-workstation/dyh-data-portal-workstation-infrastructure</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--本工程 start-->
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-data-portal-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-data-portal-controller</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-data-portal-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-data-portal-infrastructure</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-data-portal-workstation-controller</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-data-portal-workstation-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-data-portal-workstation-infrastructure</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!--本工程 end-->
+            <!--基底架 start-->
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-framework-common</artifactId>
+                <version>${dyh-data-portal-service-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-framework-rocketmq-starter</artifactId>
+                <version>${dyh-framework-rocketmq-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.duoyouhui</groupId>
+                <artifactId>dyh-framework-basic-starter</artifactId>
+                <version>${dyh-framework-rocketmq-starter.version}</version>
+            </dependency>
+            <!--基底架 end-->
+            <dependency>
+                <groupId>com.aliyun.api.gateway</groupId>
+                <artifactId>sdk-core-java</artifactId>
+                <version>${aliyun.api.gateway.version}</version>
+            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.duoyouhui</groupId>-->
+<!--                <artifactId>dyh-sharding-starter</artifactId>-->
+<!--                <version>1.0.0-SNAPSHOT</version>-->
+<!--            </dependency>-->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc</artifactId>
+                <version>${shardingshpere.jdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-cluster-mode-repository-zookeeper</artifactId>
+                <version>${shardingshpere.jdbc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>-->
+
+</project>
