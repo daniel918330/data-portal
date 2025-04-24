@@ -100,21 +100,6 @@
                 <artifactId>sdk-core-java</artifactId>
                 <version>${aliyun.api.gateway.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>com.duoyouhui</groupId>-->
-<!--                <artifactId>dyh-sharding-starter</artifactId>-->
-<!--                <version>1.0.0-SNAPSHOT</version>-->
-<!--            </dependency>-->
-            <dependency>
-                <groupId>org.apache.shardingsphere</groupId>
-                <artifactId>shardingsphere-jdbc</artifactId>
-                <version>${shardingshpere.jdbc.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shardingsphere</groupId>
-                <artifactId>shardingsphere-cluster-mode-repository-zookeeper</artifactId>
-                <version>${shardingshpere.jdbc.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
