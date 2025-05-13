@@ -1,6 +1,7 @@
 package com.duoyouhui.data.portal.service.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.duoyouhui.data.portal.api.dto.UserCommonPageDTO;
 import com.duoyouhui.data.portal.service.model.AdsProfitPUserCurrencyRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -12,5 +13,5 @@ import java.util.List;
 * @createDate 2025-05-12 12:04:33
 */
 public interface AdsProfitPUserCurrencyRecordService extends IService<AdsProfitPUserCurrencyRecord> {
-    IPage<AdsProfitPUserCurrencyRecord> getUserCurrencyRecords(Long userId, String startDate, String endDate , int page, int size);
+    IPage<AdsProfitPUserCurrencyRecord> getUserCurrencyRecords(UserCommonPageDTO dto);
 }

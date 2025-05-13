@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.duoyouhui.data.portal.api.dto.UserCommonPageDTO;
 import com.duoyouhui.data.portal.service.model.AdsProfitPUserCurrencyRecord;
 import com.duoyouhui.data.portal.service.service.AdsProfitPUserCurrencyRecordService;
 import com.duoyouhui.data.portal.service.mapper.AdsProfitPUserCurrencyRecordMapper;
@@ -20,25 +21,29 @@ public class AdsProfitPUserCurrencyRecordServiceImpl extends ServiceImpl<AdsProf
     implements AdsProfitPUserCurrencyRecordService{
 
     @Override
-    public IPage<AdsProfitPUserCurrencyRecord> getUserCurrencyRecords(Long userId, String startDate, String endDate, int page, int size) {
+    public IPage<AdsProfitPUserCurrencyRecord> getUserCurrencyRecords(UserCommonPageDTO dto) {
         // 创建分页对象
-        Page<AdsProfitPUserCurrencyRecord> pageRequest = new Page<>(page, size);
+        Page<AdsProfitPUserCurrencyRecord> pageRequest = new Page<>(dto.getPage(),dto.getSize());
 
         // 构造查询条件
         LambdaQueryWrapper<AdsProfitPUserCurrencyRecord> queryWrapper = Wrappers.lambdaQuery(AdsProfitPUserCurrencyRecord.class);
 
-
-        // 如果提供了 userId，则加上 userId 的查询条件
-        if (userId != null) {
-            System.out.println("Querying by userId: " + userId);
-            queryWrapper.eq(AdsProfitPUserCurrencyRecord::getUserId, userId);
+        // 如果提供了时间范围条件（startDate 或 endDate），则加上时间范围查询条件
+        if (dto.getApplyEndTime() != null && dto.getApplyEndTime() != null) {
+            System.out.println("startDate: " + dto.getApplyEndTime() + ", endDate: " + dto.getApplyEndTime());
+            queryWrapper.between(AdsProfitPUserCurrencyRecord::getCreateTime, dto.getApplyStartTime(),dto.getApplyEndTime()); // 小于等于 endDate
         }
 
-        // 如果提供了时间范围条件（startDate 或 endDate），则加上时间范围查询条件
-        if (startDate != null && !startDate.isEmpty() && endDate != null && !endDate.isEmpty()) {
-            System.out.println("startDate: " + startDate + ", endDate: " + endDate);
-            queryWrapper.ge(AdsProfitPUserCurrencyRecord::getCreateTime, startDate)  // 大于等于 startDate
-                    .le(AdsProfitPUserCurrencyRecord::getCreateTime, endDate); // 小于等于 endDate
+        // 如果提供了 assetType，则加上 assetType 的查询条件
+        if (dto.getAssetType() != null && !dto.getAssetType().isEmpty()) {
+            System.out.println("Querying by AssetType: " + dto.getAssetType());
+            queryWrapper.eq(AdsProfitPUserCurrencyRecord::getAssetType, dto.getAssetType());
+        }
+
+        // 如果提供了 userId，则加上 userId 的查询条件
+        if (dto.getUserId() != null)  {
+            System.out.println("Querying by userId: " + dto.getUserId());
+            queryWrapper.eq(AdsProfitPUserCurrencyRecord::getUserId, dto.getUserId());
         }
 
         // 根据创建时间倒序排列
